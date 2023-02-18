@@ -24,3 +24,20 @@ git checkout main // 기본 브랜치가 main인 경우
 git checkout -b 브랜치이름
 ex) git checkout -b apply-feedback
 ```
+
+
+---
+### 구현 기능 목록
+
+1. 숫자 랜덤 생성(1~9)
+2. 사용자에게 숫자 입력 받기
+   - 1~9 
+   - 3자리
+   - 값 중복 여부
+3. 공 상태 확인
+   - 스트라이크
+   - 볼
+   - 낫싱
+
+
+
