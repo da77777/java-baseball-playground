@@ -8,13 +8,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class ValidationUtilsTest {
-  ValidationUtils validationUtils = new ValidationUtils();
 
   @DisplayName("숫자_검증")
   @ParameterizedTest
-  @CsvSource(value = {"0:false", "1234:false", "112:false", "q12:false" ,"123:true"}, delimiter = ':')
+  @CsvSource(value = {"065:false", "1234:false", "112:false", "q12:false" ,"123:true"}, delimiter = ':')
   void validNumberTest(String number, boolean expected) {
-    boolean result = validationUtils.validNumber(number);
+    boolean result = ValidationUtils.validNumber(number);
     assertThat(result).isEqualTo(expected);
   }
 
@@ -22,7 +21,7 @@ public class ValidationUtilsTest {
   @ParameterizedTest
   @CsvSource(value = {"0:false", "가:false", "1:true" ,"2:true"}, delimiter = ':')
   void validPlayerOpinion(String number, boolean expected) {
-    boolean result = validationUtils.validPlayerOpinion(number);
+    boolean result = ValidationUtils.validPlayerOpinion(number);
     assertThat(result).isEqualTo(expected);
   }
 

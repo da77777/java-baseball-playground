@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class InputView {
-  private ValidationUtils validationUtils = new ValidationUtils();
   private final static InputView instance = new InputView();
   private final Scanner sc = new Scanner(System.in);
 
@@ -29,7 +28,7 @@ public class InputView {
     while(!flag) {
       System.out.print("숫자를 입력해 주세요 : ");
       number = inputAnswer();
-      flag = validationUtils.validNumber(number);
+      flag = ValidationUtils.validNumber(number);
     }
 
     String[] numbers = number.split("");
@@ -47,7 +46,7 @@ public class InputView {
     while(!flag) {
       System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
       opinion = inputAnswer();
-      flag = validationUtils.validPlayerOpinion(opinion);
+      flag = ValidationUtils.validPlayerOpinion(opinion);
     }
     if(opinion.equals("1")) {
       return StateEnum.NEW;

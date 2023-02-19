@@ -6,7 +6,7 @@ import java.util.List;
 public class ValidationUtils {
   private static final int NUMBER_LENGTH = 3;
 
-  public boolean validNumber(String number) {
+  public static boolean validNumber(String number) {
     try {
       List<Integer> numbers = numberSplit(number);
       return validNumber(numbers);
@@ -24,7 +24,7 @@ public class ValidationUtils {
     return numbers;
   }
 
-  private boolean validNumber(List<Integer> numbers) {
+  private static boolean validNumber(List<Integer> numbers) {
     if(validNumberLength(numbers)
         && validNumberRange(numbers)
         && validNumberNotDuplicate(numbers)) {
@@ -33,7 +33,7 @@ public class ValidationUtils {
     return false;
   }
 
-  private boolean validNumberRange(List<Integer> numbers) {
+  private static boolean validNumberRange(List<Integer> numbers) {
     int count = (int) numbers.stream()
         .filter(num -> (num >= 1 && num <= 9))
         .count();
@@ -44,7 +44,7 @@ public class ValidationUtils {
     return true;
   }
 
-  private boolean validNumberLength(List<Integer> numbers) {
+  private static boolean validNumberLength(List<Integer> numbers) {
     if(numbers.size() != NUMBER_LENGTH) {
       System.out.println("숫자 " + NUMBER_LENGTH + "개를 입력해주세요.");
       return false;
@@ -52,7 +52,7 @@ public class ValidationUtils {
     return true;
   }
 
-  private boolean validNumberNotDuplicate(List<Integer> numbers) {
+  private static boolean validNumberNotDuplicate(List<Integer> numbers) {
     if(numbers.size() != numbers.stream().distinct().count()) {
       System.out.println("숫자가 중복되지 않도록 입력해주세요.");
       return false;
@@ -60,7 +60,7 @@ public class ValidationUtils {
     return true;
   }
 
-  public boolean validPlayerOpinion(String opinion) {
+  public static boolean validPlayerOpinion(String opinion) {
     if(!(opinion.equals("1") || opinion.equals("2"))) {
       return false;
     }

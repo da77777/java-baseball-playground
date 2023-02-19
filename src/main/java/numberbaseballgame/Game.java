@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Game {
 
-  private ResultVIew resultVIew = new ResultVIew();
+  private ResultView resultView = new ResultView();
   private InputView inputView = InputView.getInstance();
 
   public void play() {
@@ -17,7 +17,7 @@ public class Game {
     while(state != StateEnum.END) {
       comBalls = getRandomNumbers(state, comBalls);
       result = comBalls.playResult(new Balls(inputView.playerNumber()));
-      resultVIew.printResult(result);
+      resultView.printResult(result);
       state = gameState(result);
     }
     inputView.closeAnswer();
